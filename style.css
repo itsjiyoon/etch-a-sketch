@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 600px;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+
+}
+
+.pixel {
+    border: 0.5px solid rgb(147, 147, 147);
+}
