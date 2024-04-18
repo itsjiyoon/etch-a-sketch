@@ -2,10 +2,9 @@ const board = document.querySelector(".board");
 
 let userSize = 16;
 const BOARDSIZE = 500;
+const sizebtn = document.querySelector(".sizeButton");
+const resetbtn = document.querySelector(".resetButton");
 
-function changeColor() {
-    this.style.backgroundColor = "black";
-}
 
 function createPixel(size) {
     let total = size * size;
@@ -18,8 +17,19 @@ function createPixel(size) {
         board.append(pixel);
 
         pixel.addEventListener("mouseover", changeColor);
+        resetbtn.addEventListener("click", e => pixel.style.backgroundColor = "white");
     }
 }
 
 createPixel(userSize);
+
+
+function changeColor() {
+    this.style.backgroundColor = "black";
+}
+
+
+function sizeChange() {
+    userSize = prompt("Enter a number between 2 and 100");
+}
 
