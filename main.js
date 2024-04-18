@@ -28,8 +28,16 @@ function changeColor() {
     this.style.backgroundColor = "black";
 }
 
-
-function sizeChange() {
-    userSize = prompt("Enter a number between 2 and 100");
+function removePixels() {
+    while (board.firstChild) {
+        board.removeChild(board.firstChild);
+    }
 }
 
+
+sizebtn.addEventListener("click", function () {
+    removePixels();
+
+    userSize = prompt("Enter a number between 2 and 100");
+    createPixel(userSize);
+});
