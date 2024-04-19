@@ -4,6 +4,9 @@ let userSize = 16;
 const BOARDSIZE = 500;
 const sizebtn = document.querySelector(".sizeButton");
 const resetbtn = document.querySelector(".resetButton");
+const blackbtn = document.querySelector(".black");
+const randombtn = document.querySelector(".random");
+
 
 
 function createPixel(size) {
@@ -16,16 +19,27 @@ function createPixel(size) {
         pixel.classList.add("pixel");
         board.append(pixel);
 
-        pixel.addEventListener("mouseover", changeColor);
+        pixel.addEventListener("mouseover", e=> pixel.style.backgroundColor = changeColor("black"));
         resetbtn.addEventListener("click", e => pixel.style.backgroundColor = "white");
+        blackbtn.addEventListener("click", e => pixel.addEventListener("mouseover", e => pixel.style.backgroundColor = changeColor("black")));
+        randombtn.addEventListener("click", e => pixel.addEventListener("mouseover", e => pixel.style.backgroundColor = changeColor("random")));
+        
     }
 }
 
 createPixel(userSize);
 
 
-function changeColor() {
-    this.style.backgroundColor = "black";
+function changeColor(color) {
+    if (color === "random") {
+        const h = Math.floor(Math.random() * 360);
+        
+        return `hsl(${h},100%, 70%)`;
+    }
+
+    else {
+        return "black";
+    }
 }
 
 function removePixels() {
